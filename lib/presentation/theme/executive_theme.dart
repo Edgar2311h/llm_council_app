@@ -180,7 +180,7 @@ class ExecutiveTheme {
       ),
 
       // Cards
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: cardBackground,
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -301,7 +301,7 @@ class ExecutiveTheme {
       ),
 
       // Tab Bar
-      tabBarTheme: TabBarTheme(
+      tabBarTheme: TabBarThemeData(
         labelColor: goldAccent,
         unselectedLabelColor: textSecondary,
         indicatorColor: goldAccent,
@@ -329,7 +329,7 @@ class ExecutiveTheme {
       ),
 
       // Dialog
-      dialogTheme: DialogTheme(
+      dialogTheme: DialogThemeData(
         backgroundColor: cardBackground,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
