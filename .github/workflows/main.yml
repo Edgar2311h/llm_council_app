@@ -1,3 +1,4 @@
+
 name: Build Android APK
 
 on:
@@ -9,6 +10,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -27,3 +29,23 @@ jobs:
         with:
           channel: stable
           cache: true
+
+      - name: Configure Flutter JDK
+        run: flutter config --jdk-dir="$JAVA_HOME"
+
+      - name: Verify Flutter Java
+        run: flutter doctor -v
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: llm-council-android
+          path: build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
+          
